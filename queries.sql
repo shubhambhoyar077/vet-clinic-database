@@ -9,8 +9,8 @@ SELECT * from animals WHERE EXTRACT(YEAR FROM date_of_birth) BETWEEN 2016 AND 20
 -- List the name of all animals that are neutered and have less than 3 escape attempts.
 SELECT name from animals WHERE neutered='t' AND escape_attempts < 3;
 
--- -- List the date of birth of all animals named either "Agumon" or "Pikachu".
--- SELECT date_of_birth from animals WHERE name IN ('Agumon', 'Pikachu');
+-- List the date of birth of all animals named either "Agumon" or "Pikachu".
+SELECT date_of_birth from animals WHERE name IN ('Agumon', 'Pikachu');
 
 -- --  List name and escape attempts of animals that weigh more than 10.5kg
 -- SELECT name, escape_attempts from animals WHERE weight_kg > 10.5; 
