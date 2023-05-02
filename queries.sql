@@ -89,8 +89,8 @@ COMMIT;
 -- How many animals are there?
 SELECT COUNT(*) AS total FROM animals;
     
--- -- How many animals have never tried to escape?
--- SELECT COUNT(*) AS total FROM animals WHERE escape_attempts = 0;
+-- How many animals have never tried to escape?
+SELECT COUNT(*) AS total FROM animals WHERE escape_attempts = 0;
 
 -- -- What is the average weight of animals?
 -- SELECT AVG(weight_kg) as avg_weight FROM animals;
