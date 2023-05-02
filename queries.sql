@@ -30,9 +30,7 @@ SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 BEGIN;
 
 UPDATE animals
-SET species = NULL;
-
-SELECT * FROM animals;
+SET species = 'unspecified';
 
 ROLLBACK;
 
