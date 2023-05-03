@@ -151,13 +151,13 @@ FROM vets
 FULL JOIN specializations ON vets.id = specializations.vet_id
 FULL JOIN species ON species.id = specializations.species_id;
 
--- -- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
--- SELECT name FROM
---  ((SELECT animal_id, date_of_visit 
---  FROM ((SELECT id FROM vets WHERE name = 'Stephanie Mendez') vets 
---  JOIN visits ON vets.id = visits.vet_id)) will_vets
---  JOIN animals ON will_vets.animal_id = animals.id) as visit
---  WHERE date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
+-- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
+SELECT name FROM
+ ((SELECT animal_id, date_of_visit 
+ FROM ((SELECT id FROM vets WHERE name = 'Stephanie Mendez') vets 
+ JOIN visits ON vets.id = visits.vet_id)) will_vets
+ JOIN animals ON will_vets.animal_id = animals.id) as visit
+ WHERE date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
 
 -- -- What animal has the most visits to vets?
 -- SELECT animals.name, Count(*) AS total_visits
