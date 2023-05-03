@@ -82,25 +82,24 @@ WHERE (vets.name = 'William Tatcher' AND species.name = 'Pokemon')
 
 
 INSERT INTO visits (animal_id, vet_id, date_of_visit)
-SELECT CASE
-WHEN vets.name = 'William Tatcher' AND animals.name = 'Agumon' THEN animals.id, vets.id, '2020-05-24'
-WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Agumon' THEN animals.id, vets.id, '2020-07-22'
-WHEN vets.name = 'Jack Harkness' AND animals.name = 'Gabumon' THEN animals.id, vets.id, '2021-02-02'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Pikachu' THEN animals.id, vets.id, '2020-01-05'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Pikachu' THEN animals.id, vets.id, '2020-03-08'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Pikachu' THEN animals.id, vets.id, '2020-05-14'
-WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Devimon' THEN animals.id, vets.id, '2021-05-04'
-WHEN vets.name = 'Jack Harkness' AND animals.name = 'Charmander' THEN animals.id, vets.id, '2021-02-24'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Plantmon' THEN animals.id, vets.id, '2019-12-21'
-WHEN vets.name = 'William Tatcher' AND animals.name = 'Plantmon' THEN animals.id, vets.id, '2020-08-10'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Plantmon' THEN animals.id, vets.id, '2021-04-07'
-WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Squirtle' THEN animals.id, vets.id, '2019-09-29'
-WHEN vets.name = 'Jack Harkness' AND animals.name = 'Angemon' THEN animals.id, vets.id, '2020-10-03'
-WHEN vets.name = 'Jack Harkness' AND animals.name = 'Angemon' THEN animals.id, vets.id, '2020-11-04'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2019-01-24'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2019-05-15'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2020-02-27'
-WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2020-08-03'
-WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Blossom' THEN animals.id, vets.id, '2020-05-24'
-WHEN vets.name = 'William Tatcher' AND animals.name = 'Blossom' THEN animals.id, vets.id, '2021-01-11'
-FROM animals, vets;
+VALUES 
+    ((SELECT id FROM animals WHERE name = 'Agumon'), (SELECT id FROM vets WHERE name = 'William Tatcher'), '2020-05-24'),
+    ((SELECT id FROM animals WHERE name = 'Agumon'), (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2020-07-22'),
+    ((SELECT id FROM animals WHERE name = 'Gabumon'), (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2021-02-02'),
+    ((SELECT id FROM animals WHERE name = 'Pikachu'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-01-05'),
+    ((SELECT id FROM animals WHERE name = 'Pikachu'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-03-08'),
+    ((SELECT id FROM animals WHERE name = 'Pikachu'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-05-14'),
+    ((SELECT id FROM animals WHERE name = 'Devimon'), (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2021-05-04'),
+    ((SELECT id FROM animals WHERE name = 'Charmander'), (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2021-02-24'),
+    ((SELECT id FROM animals WHERE name = 'Plantmon'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2019-12-21'),
+    ((SELECT id FROM animals WHERE name = 'Plantmon'), (SELECT id FROM vets WHERE name = 'William Tatcher'), '2020-08-10'),
+    ((SELECT id FROM animals WHERE name = 'Plantmon'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2021-04-07'),
+    ((SELECT id FROM animals WHERE name = 'Squirtle'), (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2019-09-29'),
+    ((SELECT id FROM animals WHERE name = 'Angemon'), (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2020-10-03'),
+    ((SELECT id FROM animals WHERE name = 'Angemon'), (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2020-11-04'),
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2019-01-24'),
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2019-05-15'),
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-02-27'),
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-08-03'),
+    ((SELECT id FROM animals WHERE name = 'Blossom'), (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2020-05-24'),
+    ((SELECT id FROM animals WHERE name = 'Blossom'), (SELECT id FROM vets WHERE name = 'William Tatcher'), '2021-01-11');
