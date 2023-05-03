@@ -73,9 +73,34 @@ VALUES ('William Tatcher', 45, '2000-04-23'),
 
 
 INSERT INTO specializations (species_id, vet_id)
-SELECT species.id AS species_id, vets.id AS vet_id CASE
+SELECT CASE
 WHEN vets.name = 'William Tatcher' AND species.name = 'Pokemon' THEN species.id, vets.id
 WHEN vets.name = 'Stephanie Mendez' AND species.name IN ('Digimon','Pokemon') THEN species.id, vets.id
 WHEN vets.name = 'Jack Harkness' AND species.name = 'Digimon' THEN species.id, vets.id
 FROM species, vets;
 
+
+
+INSERT INTO visits (animal_id, vet_id, date_of_visit)
+SELECT CASE
+WHEN vets.name = 'William Tatcher' AND animals.name = 'Agumon' THEN animals.id, vets.id, '2020-05-24'
+WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Agumon' THEN animals.id, vets.id, '2020-07-22'
+WHEN vets.name = 'Jack Harkness' AND animals.name = 'Gabumon' THEN animals.id, vets.id, '2021-02-02'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Pikachu' THEN animals.id, vets.id, '2020-01-05'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Pikachu' THEN animals.id, vets.id, '2020-03-08'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Pikachu' THEN animals.id, vets.id, '2020-05-14'
+WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Devimon' THEN animals.id, vets.id, '2021-05-04'
+WHEN vets.name = 'Jack Harkness' AND animals.name = 'Charmander' THEN animals.id, vets.id, '2021-02-24'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Plantmon' THEN animals.id, vets.id, '2019-12-21'
+WHEN vets.name = 'William Tatcher' AND animals.name = 'Plantmon' THEN animals.id, vets.id, '2020-08-10'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Plantmon' THEN animals.id, vets.id, '2021-04-07'
+WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Squirtle' THEN animals.id, vets.id, '2019-09-29'
+WHEN vets.name = 'Jack Harkness' AND animals.name = 'Angemon' THEN animals.id, vets.id, '2020-10-03'
+WHEN vets.name = 'Jack Harkness' AND animals.name = 'Angemon' THEN animals.id, vets.id, '2020-11-04'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2019-01-24'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2019-05-15'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2020-02-27'
+WHEN vets.name = 'Maisy Smith' AND animals.name = 'Boarmon' THEN animals.id, vets.id, '2020-08-03'
+WHEN vets.name = 'Stephanie Mendez' AND animals.name = 'Blossom' THEN animals.id, vets.id, '2020-05-24'
+WHEN vets.name = 'William Tatcher' AND animals.name = 'Blossom' THEN animals.id, vets.id, '2021-01-11'
+FROM animals, vets;
