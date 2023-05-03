@@ -138,12 +138,12 @@ SELECT name FROM
  JOIN animals ON will_vets.animal_id = animals.id) as visit
  ORDER BY date_of_visit DESC LIMIT 1;
 
--- -- How many different animals did Stephanie Mendez see?
--- SELECT name FROM
---  ((SELECT animal_id, date_of_visit 
---  FROM ((SELECT id FROM vets WHERE name = 'Stephanie Mendez') vets 
---  JOIN visits ON vets.id = visits.vet_id)) will_vets
---  JOIN animals ON will_vets.animal_id = animals.id) as visit;
+-- How many different animals did Stephanie Mendez see?
+SELECT name FROM
+ ((SELECT animal_id, date_of_visit 
+ FROM ((SELECT id FROM vets WHERE name = 'Stephanie Mendez') vets 
+ JOIN visits ON vets.id = visits.vet_id)) will_vets
+ JOIN animals ON will_vets.animal_id = animals.id) as visit;
 
 -- -- List all vets and their specialties, including vets with no specialties.
 -- SELECT vets.name, species.name
