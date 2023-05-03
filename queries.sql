@@ -167,13 +167,13 @@ JOIN animals ON animals.id = visits.animal_id
 GROUP BY animals.name
 ORDER BY total_visits DESC LIMIT 1;
 
--- -- Who was Maisy Smith's first visit?
--- SELECT name FROM
---  ((SELECT animal_id, date_of_visit 
---  FROM ((SELECT id FROM vets WHERE name = 'Maisy Smith') vets 
---  JOIN visits ON vets.id = visits.vet_id)) will_vets
---  JOIN animals ON will_vets.animal_id = animals.id) as visit
---  ORDER BY date_of_visit LIMIT 1;
+-- Who was Maisy Smith's first visit?
+SELECT name FROM
+ ((SELECT animal_id, date_of_visit 
+ FROM ((SELECT id FROM vets WHERE name = 'Maisy Smith') vets 
+ JOIN visits ON vets.id = visits.vet_id)) will_vets
+ JOIN animals ON will_vets.animal_id = animals.id) as visit
+ ORDER BY date_of_visit LIMIT 1;
 
 -- -- Details for most recent visit: animal information, vet information, and date of visit.
 -- SELECT *
