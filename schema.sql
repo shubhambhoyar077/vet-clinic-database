@@ -57,7 +57,7 @@ CREATE TABLE specializations (
   PRIMARY KEY (species_id, vet_id),
   CONSTRAINT fk_species FOREIGN KEY(species_id) REFERENCES species(id),
   CONSTRAINT fk_vet FOREIGN KEY(vet_id) REFERENCES vets(id)
-)
+);
 
 CREATE TABLE visits (
   animal_id INT,
@@ -66,4 +66,4 @@ CREATE TABLE visits (
   PRIMARY KEY (animal_id, vet_id),
   CONSTRAINT fk_animal FOREIGN KEY(animal_id) REFERENCES animals(id),
   CONSTRAINT fk_vet FOREIGN KEY(vet_id) REFERENCES vets(id)
-)
+);
