@@ -73,11 +73,11 @@ VALUES ('William Tatcher', 45, '2000-04-23'),
 
 
 INSERT INTO specializations (species_id, vet_id)
-SELECT CASE
-WHEN vets.name = 'William Tatcher' AND species.name = 'Pokemon' THEN species.id, vets.id
-WHEN vets.name = 'Stephanie Mendez' AND species.name IN ('Digimon','Pokemon') THEN species.id, vets.id
-WHEN vets.name = 'Jack Harkness' AND species.name = 'Digimon' THEN species.id, vets.id
-FROM species, vets;
+SELECT species.id AS species_id, vets.id AS vet_id
+FROM species, vets
+WHERE (vets.name = 'William Tatcher' AND species.name = 'Pokemon')
+   OR (vets.name = 'Stephanie Mendez' AND species.name IN ('Digimon','Pokemon'))
+   OR (vets.name = 'Jack Harkness' AND species.name = 'Digimon');
 
 
 
