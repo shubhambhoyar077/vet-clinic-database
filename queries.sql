@@ -204,13 +204,7 @@ ORDER BY total DESC LIMIT 1;
 
 
 EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4; 
-CREATE index visits_animal_id_idx ON visits(animal_id);
-EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
 
 EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
-CREATE index visits_vet_id_idx ON visits(vet_id);
-EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
 
-EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
-CREATE index visits_email_idx ON visits(email);
 EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
