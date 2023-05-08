@@ -122,6 +122,10 @@ You can deploy this project using: **Not available**.
 
 - GitHub: [@shubhambhoyar077](https://github.com/shubhambhoyar077)
 
+👤 **Emmanuel OBI**
+
+- GitHub: [@Gmanlove](https://github.com/Gmanlove)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
