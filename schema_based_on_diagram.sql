@@ -29,3 +29,26 @@ CREATE TABLE trearment_histories (
   CONSTRAINT fk_medical_histoy FOREIGN KEY(medical_histoy__id) REFERENCES medical_histories(id),
   CONSTRAINT fk_treatment FOREIGN KEY(treatment_id) REFERENCES treatments(id)
 );
+
+CREATE TABLE invoices (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  total_amount NUMERIC(5,2),
+  generated_at TIMESTAMP,
+  payed_at TIMESTAMP,
+  medical_histoy__id INT DEFAULT 0,
+  PRIMARY KEY(id),
+  UNIQUE(medical_histoy__id),
+  CONSTRAINT fk_medical_histoy FOREIGN KEY(medical_histoy__id) REFERENCES medical_histories(id)
+);
+
+CREATE TABLE invoice_items (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  unit_price NUMERIC(5,2),
+  quantity INT,
+  total_price NUMERIC(5, 2),
+  invoice_id INT,
+  treatment_id INT,
+  PRIMARY KEY(id),
+  CONSTRAINT fk_invoice FOREIGN KEY(invoice_id) REFERENCES invoices(id),
+  CONSTRAINT fk_treatment FOREIGN KEY(treatment_id) REFERENCES treatments(id)
+);
